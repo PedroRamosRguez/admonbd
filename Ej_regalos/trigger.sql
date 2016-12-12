@@ -1,3 +1,4 @@
+USE regalos;
 DELIMITER $$
 DROP TRIGGER IF EXISTS precioTotal;
 CREATE TRIGGER precioTotal before insert on REGALO
