@@ -22,9 +22,6 @@
 <?php 
 #$_GET['Buscar'] = $_get['Buscar'];
 $bandera = false;
-echo "<pre>";
-print_r ($_GET);
-echo "</pre>";
 include("conexion.php");
 $numero_total_resultados=10;
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
@@ -39,7 +36,6 @@ if(empty($_GET['Buscar'])){
         $sql .= " ORDER BY $order ASC ";
     }
     $sql .= " LIMIT $comienzo, $numero_total_resultados";
-    echo $sql;
 }//fin if(Buscar)
 else{
     $sql = "SELECT * FROM Pelicula  
@@ -52,7 +48,6 @@ else{
             }
             $sql .= " LIMIT $comienzo, $numero_total_resultados";
             
-            echo $slq;
     $bandera = true;
     }
     $query = mysql_query ($sql); //run the query
@@ -99,13 +94,13 @@ while ($row = mysql_fetch_assoc($query)) {
     echo '<div id="main" style="float:right;margin:0px 25% 0 0; ">';
     echo '<ul class="pagination">';
     echo '<li class="waves-effect">
-          <a href="index.php?page=1&Buscar='.$_GET['Buscar'].'" sort='.$order.'">'."|<".'</a></li>';
+          <a href="index.php?page=1&Buscar='.$_GET['Buscar'].' sort='.$order.'">'."|<".'</a></li>';
     for ($i=1; $i<=$total_pages; $i++) { 
         echo '<li class="waves-effect">
               <a href="index.php?page='.$i.'&Buscar='.$_GET['Buscar'].'&sort='.$order.'">'.$i.'</a></li>'; 
     }; 
     echo '<li class="waves-effect"> 
-          <a href="index.php?page='.$total_pages.'&Buscar='.$_GET['Buscar'].'"&sort='.$order.'">'.">|".'</a></li>';
+          <a href="index.php?page='.$total_pages.'&Buscar='.$_GET['Buscar'].'&sort='.$order.'">'.">|".'</a></li>';
     echo '</ul>';
     echo '</div>';
     mysql_close();
