@@ -36,7 +36,7 @@
                       
           if($query && mysql_num_rows($query) >0)
           {
-               header("Location: principal.php");
+               header("Location: ./src/principal.php");
           }
            else {
                echo "<h3>Usuario o contraseña erroneo.</h3>";
