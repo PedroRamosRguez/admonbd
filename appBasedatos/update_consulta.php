@@ -8,6 +8,6 @@
     $result = mysql_query($query) or die('Consulta fallida: ' . mysql_error());
   
     echo '<h3> Datos actualizados</h3>';
-    header("Location: /index.php");
+    header("Location: /principal.php");
 	exit(); 
 ?>
